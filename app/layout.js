@@ -26,17 +26,17 @@ export default function RootLayout({ children }) {
 		<html lang='en'>
 			<body
 				className={`${Josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col`}>
-				<Header />
-				<div className='flex-1 px-8 py-12 grid '>
-					<main className='max-w-7xl mx-auto w-full'>
-						<ReservationProvider>
-							<Providers>
+				<Providers>
+					<Header />
+					<div className='flex-1 px-8 py-12 grid '>
+						<main className='max-w-7xl mx-auto w-full'>
+							<ReservationProvider>
 								{children}{" "}
 								<Toaster position='top-center' reverseOrder={false} />
-							</Providers>
-						</ReservationProvider>
-					</main>
-				</div>
+							</ReservationProvider>
+						</main>
+					</div>
+				</Providers>
 			</body>
 		</html>
 	);
