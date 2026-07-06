@@ -1,19 +1,17 @@
 import Image from "next/image";
 import image1 from "@/public/about-1.jpg";
 import image2 from "@/public/about-2.jpg";
-import { getBlurData } from "@/_utils/getBlurData";
 import { getCabins } from "@/_lib/data-service";
 import DeleteReservation from "@/_components/DeleteReservation";
+import Link from "next/link";
 
 export const metadata = {
 	title: "About",
 };
 
 export const revalidate = 86400;
-export default async function Page() {
-	const blurDataURL = await getBlurData(image1.src);
-	const secondBlurDataURL = await getBlurData(image2.src);
 
+export default async function Page() {
 	const cabins = await getCabins();
 	const cabinsLength = cabins.length;
 
@@ -53,20 +51,20 @@ export default async function Page() {
 					src={image1}
 					quality={75}
 					placeholder='blur'
-					blurDataURL={blurDataURL}
 					alt='Family sitting around a fire pit in front of cabin'
+					sizes='(max-width: 768px) 100vw, 40vw'
 				/>
 			</div>
 
-			<div className=' relative aspect-square col-span-2'>
+			<div className='relative aspect-square col-span-2'>
 				<Image
 					fill
 					quality={10}
 					placeholder='blur'
-					blurDataURL={secondBlurDataURL}
 					className='object-cover'
 					src={image2}
 					alt='Family that manages The Wild Oasis'
+					sizes='(max-width: 768px) 100vw, 40vw'
 				/>
 			</div>
 
@@ -92,11 +90,11 @@ export default async function Page() {
 					</p>
 
 					<div>
-						<a
+						<Link
 							href='/cabins'
 							className='inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all'>
 							Explore our luxury cabins
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>
