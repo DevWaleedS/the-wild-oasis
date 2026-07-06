@@ -3,7 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Navigation() {
-	const session = await auth();
+	let session = null;
+	try {
+		session = await auth();
+	} catch (error) {
+		console.error("Auth error in Navigation:", error);
+	}
 
 	return (
 		<nav className='z-10 text-xl'>
