@@ -2,6 +2,7 @@ import { Josefin_Sans } from "next/font/google";
 
 import "@/app/_styles/globals.css";
 import Header from "@/app/_components/Header";
+import Providers from "@/app/_components/SessionProvider";
 
 import { ReservationProvider } from "@/_context/ReservationsContext";
 import { Toaster } from "react-hot-toast";
@@ -29,7 +30,10 @@ export default function RootLayout({ children }) {
 				<div className='flex-1 px-8 py-12 grid '>
 					<main className='max-w-7xl mx-auto w-full'>
 						<ReservationProvider>
-							{children} <Toaster position='top-center' reverseOrder={false} />
+							<Providers>
+								{children}{" "}
+								<Toaster position='top-center' reverseOrder={false} />
+							</Providers>
 						</ReservationProvider>
 					</main>
 				</div>

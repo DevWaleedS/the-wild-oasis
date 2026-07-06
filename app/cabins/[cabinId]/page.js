@@ -4,9 +4,6 @@ import Cabin from "@/_components/Cabin";
 import { Suspense } from "react";
 import Spinner from "@/_components/Spinner";
 
-// re-fetch the data from the server every 60 min.
-export const revalidate = 3600;
-
 // to generate the dynamic metadata
 export async function generateMetadata({ params }) {
 	const { cabinId } = await params;

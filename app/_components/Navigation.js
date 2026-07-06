@@ -1,14 +1,11 @@
-import { auth } from "@/_lib/auth";
+"use client";
+
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Navigation() {
-	let session = null;
-	try {
-		session = await auth();
-	} catch (error) {
-		console.error("Auth error in Navigation:", error);
-	}
+export default function Navigation() {
+	const { data: session } = useSession();
 
 	return (
 		<nav className='z-10 text-xl'>
@@ -28,19 +25,20 @@ export default async function Navigation() {
 					</Link>
 				</li>
 				<li>
-					{session?.user.image ? (
+					{session?.user?.image ? (
 						<Link
 							href='/account'
 							className='hover:text-accent-400 transition-colors'>
-							<div className='relative inline-flex mr-2 -mb-1.5  w-8 h-8'>
+							<div className='relative inline-flex mr-2 -mb-1.5 w-8 h-8'>
 								<Image
 									fill
+									sizes='32px'
 									className='object-cover rounded-full'
 									src={session.user.image}
 									alt={session.user.name}
 								/>
 							</div>
-							<span>{session?.user.name}</span>
+							<span>{session.user.name}</span>
 						</Link>
 					) : (
 						<Link
