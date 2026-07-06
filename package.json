@@ -1,0 +1,36 @@
+{
+  "name": "the-wild-oasis-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@plaiceholder/next": "^3.0.0",
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.108.2",
+    "date-fns": "^4.4.0",
+    "next": "14.1.4",
+    "next-auth": "^5.0.0-beta.31",
+    "plaiceholder": "^3.0.0",
+    "react": "^18",
+    "react-day-picker": "^10.0.1",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.6.0",
+    "sharp": "^0.35.2"
+  },
+  "devDependencies": {
+    "@types/node": "26.0.0",
+    "@types/react": "19.2.17",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "6.0.3"
+  }
+}
