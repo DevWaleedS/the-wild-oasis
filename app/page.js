@@ -5,15 +5,16 @@ export default function Page() {
 	return (
 		<main className='mt-24'>
 			{/* to make this image responsive */}
-			<Image
-				src={bg}
-				fill
-				placeholder='blur'
-				quality={75}
-				sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-				className=' object-cover object-top'
-				alt='Mountains and forests with two cabins'
-			/>
+			<div className='absolute inset-0 -z-1'>
+				<Image
+					src={bg}
+					fill
+					placeholder='blur'
+					quality={75}
+					className='object-cover object-top'
+					alt='Mountains and forests with two cabins'
+				/>
+			</div>
 
 			<div className='relative z-10 text-center'>
 				<h1 className='text-8xl text-primary-50 mb-10 tracking-tight font-normal'>

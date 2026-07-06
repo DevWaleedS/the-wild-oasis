@@ -10,8 +10,10 @@ export const metadata = {
 	description: "This is the Your Cabins page",
 };
 
-export default function Page({ searchParams }) {
-	const filters = searchParams?.capacity ?? "all";
+export default async function Page({ searchParams }) {
+	const { capacity } = await searchParams;
+	const filters = capacity ?? "all";
+
 	return (
 		<div>
 			<h1 className='text-4xl mb-5 text-accent-400 font-medium'>
